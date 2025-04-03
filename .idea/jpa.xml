@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig" newRepositoryParent="org.springframework.data.jpa.repository.JpaRepository">
+    <option name="reverseEngineeringLastDbConnectionId" value="1f4478bd-1c7c-49fe-8acc-a12232dbeb39__order_microservice_public" />
+  </component>
+</project>

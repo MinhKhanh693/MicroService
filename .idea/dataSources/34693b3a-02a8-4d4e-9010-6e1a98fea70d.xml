@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mongodb-localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.53">
+    <root id="1">
+      <ServerVersion>8.0.6</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin">
+      <LastIntrospectionLocalTimestamp>2025-03-31.10:05:33</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="3" parent="1" name="config">
+      <LastIntrospectionLocalTimestamp>2025-03-31.10:05:22</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="4" parent="1" name="customer">
+      <LastIntrospectionLocalTimestamp>2025-04-02.14:40:52</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="5" parent="1" name="local">
+      <LastIntrospectionLocalTimestamp>2025-03-31.10:05:22</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="6" parent="1" name="notification">
+      <LastIntrospectionLocalTimestamp>2025-04-02.14:17:53</LastIntrospectionLocalTimestamp>
+    </schema>
+    <table id="7" parent="4" name="customer"/>
+    <table id="8" parent="6" name="notificationEntity"/>
+    <column id="9" parent="7" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="10" parent="7" name="_class">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="11" parent="7" name="address">
+      <Position>3</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="12" parent="7" name="address.houseNumber">
+      <Position>4</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="13" parent="7" name="address.street">
+      <Position>5</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="14" parent="7" name="address.zipCode">
+      <Position>6</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="15" parent="7" name="email">
+      <Position>7</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="16" parent="7" name="firstName">
+      <Position>8</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="17" parent="7" name="lastName">
+      <Position>9</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="18" parent="7" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="19" parent="8" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="20" parent="8" name="_class">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="21" parent="8" name="notificationDate">
+      <Position>3</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="22" parent="8" name="orderConfirmation">
+      <Position>4</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="23" parent="8" name="orderConfirmation.customer">
+      <Position>5</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="24" parent="8" name="orderConfirmation.customer._id">
+      <Position>6</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="25" parent="8" name="orderConfirmation.customer.email">
+      <Position>7</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="26" parent="8" name="orderConfirmation.orderReference">
+      <Position>8</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="27" parent="8" name="orderConfirmation.paymentMethod">
+      <Position>9</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="28" parent="8" name="orderConfirmation.products">
+      <Position>10</Position>
+      <StoredType>list|4999545s</StoredType>
+    </column>
+    <column id="29" parent="8" name="orderConfirmation.products.description">
+      <Position>11</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="30" parent="8" name="orderConfirmation.products.name">
+      <Position>12</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="31" parent="8" name="orderConfirmation.products.price">
+      <Position>13</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="32" parent="8" name="orderConfirmation.products.quantity">
+      <Position>14</Position>
+      <StoredType>Double|8s</StoredType>
+    </column>
+    <column id="33" parent="8" name="orderConfirmation.totalAmount">
+      <Position>15</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="34" parent="8" name="paymentConfirmation">
+      <Position>16</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="35" parent="8" name="paymentConfirmation.amount">
+      <Position>17</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="36" parent="8" name="paymentConfirmation.customerEmail">
+      <Position>18</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="37" parent="8" name="paymentConfirmation.orderReference">
+      <Position>19</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="38" parent="8" name="paymentConfirmation.paymentMethod">
+      <Position>20</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="39" parent="8" name="type">
+      <Position>21</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="40" parent="8" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+  </database-model>
+</dataSource>

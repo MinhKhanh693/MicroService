@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment_microservice
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: paymentConfirmation:mk.paymentservice.kafka.PaymentNotificationRequestDto
+server:
+  port: 8060
+
+application:
+  config:
+    customer-service-url: http://localhost:8222/api/v1/customers
+    payment-service-url: http://localhost:8222/api/v1/payments
+    product-service-url: http://localhost:8222/api/v1/products
