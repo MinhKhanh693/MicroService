@@ -10,16 +10,16 @@
     <schema id="3" parent="1" name="config">
       <LastIntrospectionLocalTimestamp>2025-03-31.10:05:22</LastIntrospectionLocalTimestamp>
     </schema>
-    <schema id="4" parent="1" name="customer">
-      <LastIntrospectionLocalTimestamp>2025-04-02.14:40:52</LastIntrospectionLocalTimestamp>
-    </schema>
-    <schema id="5" parent="1" name="local">
+    <schema id="4" parent="1" name="local">
       <LastIntrospectionLocalTimestamp>2025-03-31.10:05:22</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="5" parent="1" name="customer">
+      <LastIntrospectionLocalTimestamp>2025-04-02.14:40:52</LastIntrospectionLocalTimestamp>
     </schema>
     <schema id="6" parent="1" name="notification">
       <LastIntrospectionLocalTimestamp>2025-04-02.14:17:53</LastIntrospectionLocalTimestamp>
     </schema>
-    <table id="7" parent="4" name="customer"/>
+    <table id="7" parent="5" name="customer"/>
     <table id="8" parent="6" name="notificationEntity"/>
     <column id="9" parent="7" name="_id">
       <Position>1</Position>

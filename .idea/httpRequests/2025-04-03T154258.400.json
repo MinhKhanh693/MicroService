@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-04-03T08:42:58.436+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/api/v1/payments"
+}

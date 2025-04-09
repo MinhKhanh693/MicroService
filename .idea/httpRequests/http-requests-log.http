@@ -1,0 +1,60 @@
+POST http://localhost:8060/api/v1/payments
+Content-Type: application/json
+Content-Length: 119
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "id": 0,
+  "amount": 900,
+  "paymentMethod": "PAYPAL",
+  "orderId": 123,
+  "orderReference": "",
+  "customer": {}
+}
+
+<> 2025-04-03T154437.500.json
+
+###
+
+POST http://localhost:8060/api/v1/payments
+Content-Type: application/json
+Content-Length: 116
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "id": 0,
+  "amount": {},
+  "paymentMethod": "PAYPAL",
+  "orderId": 0,
+  "orderReference": "",
+  "customer": {}
+}
+
+<> 2025-04-03T154331.400.json
+
+###
+
+POST http://localhost:8060/api/v1/payments
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-04-03T154258.400.json
+
+###
+
+POST http://localhost:8060/api/v1/payments
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-04-03T154130.400.json
+
+###
+

@@ -1,0 +1,152 @@
+Index: .idea/git_toolbox_prj.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/git_toolbox_prj.xml b/.idea/git_toolbox_prj.xml
+new file mode 100644
+--- /dev/null	(date 1743651638964)
++++ b/.idea/git_toolbox_prj.xml	(date 1743651638964)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GitToolBoxProjectSettings">
++    <option name="commitMessageIssueKeyValidationOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++    <option name="commitMessageValidationEnabledOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1743651638951)
++++ b/.idea/vcs.xml	(date 1743651638951)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3c391e6-62d8-49b0-a03b-e07c5dbf0892\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Dockerfile\" />\r\n        <option value=\"com.intellij.jpb.FlywayMigrationScript\" />\r\n        <option value=\"com.intellij.jpb.NewClass\" />\r\n        <option value=\"com.intellij.jpb.JpaEntity\" />\r\n        <option value=\"Exception\" />\r\n        <option value=\"com.intellij.jpb.JpaRepository\" />\r\n        <option value=\"com.intellij.jpb.NewRecord\" />\r\n        <option value=\"Record\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n        <option value=\"Enum\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"isToolWindowVisible\" value=\"false\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2v4e3959hURADeFhGdGHMj9rxCW\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Docker.docker-compose.yml.kafka: Compose Deployment.executor\": \"Run\",\r\n    \"Docker.docker-compose.yml.mongodb: Compose Deployment.executor\": \"Run\",\r\n    \"Docker.docker-compose.yml.zookeeper: Compose Deployment.executor\": \"Run\",\r\n    \"DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY\": \"true\",\r\n    \"JUnit.All in product-service.executor\": \"Run\",\r\n    \"Maven.gateway-service [clean].executor\": \"Run\",\r\n    \"Maven.gateway-service [install].executor\": \"Run\",\r\n    \"Maven.order-service [clean].executor\": \"Run\",\r\n    \"Maven.order-service [compile].executor\": \"Run\",\r\n    \"Maven.order-service [install].executor\": \"Run\",\r\n    \"Maven.product-service [clean].executor\": \"Run\",\r\n    \"Maven.product-service [compile].executor\": \"Run\",\r\n    \"Maven.product-service [install].executor\": \"Run\",\r\n    \"Maven.product-service [test].executor\": \"Run\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"Spring Boot.ConfigServerApplication.executor\": \"Run\",\r\n    \"Spring Boot.CustomerServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.DiscoveryServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.GatewayApplication.executor\": \"Run\",\r\n    \"Spring Boot.NotificationServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.OrderServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.PaymentServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.ProductServiceApplication.executor\": \"Run\",\r\n    \"database.data.extractors.current.export.id\": \"SQL Inserts\",\r\n    \"database.data.extractors.current.id\": \"SQL Inserts\",\r\n    \"extract.method.default.visibility\": \"private\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/allProject/Java-Tutorial/Apache-Kafka/Kafka-limit-request\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"run.configurations.included.in.services\": \"true\",\r\n    \"settings.editor.selected.configurable\": \"settings.sync\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mongo\",\r\n      \"postgresql\"\r\n    ],\r\n    \"com.intellij.ide.scratch.LRUPopupBuilder$1/\": [\r\n      \"PostgreSQL\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"ReactorSettings\">\r\n    <option name=\"notificationShown\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\config-server\\src\\main\\resources\\configuration\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\java\\mk\\orderservice\\entities\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\resources\\db\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"mk.orderservice.controllers.requests\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunDashboard\">\r\n    <option name=\"configurationTypes\">\r\n      <set>\r\n        <option value=\"KtorApplicationConfigurationType\" />\r\n        <option value=\"MicronautRunConfigurationType\" />\r\n        <option value=\"QuarkusRunConfigurationType\" />\r\n        <option value=\"SpringBootApplicationConfigurationType\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.OrderServiceApplication\">\r\n    <configuration name=\"All in product-service\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"product-service\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ConfigServerApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"config-server\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.configserver.ConfigServerApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"CustomerServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"customer-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.customerservice.CustomerServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"DiscoveryServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"discovery-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.discoveryservice.DiscoveryServiceApplication\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"mk.discoveryservice.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"GatewayApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"gateway-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.gateway.GatewayApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"NotificationServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"notification-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.notificationservice.NotificationServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"OrderServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"order-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.orderservice.OrderServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PaymentServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"payment-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.paymentservice.PaymentServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ProductServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"product-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.productservice.ProductServiceApplication\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"mk.productservice.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings />\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"docker-compose.yml.kafka: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"services\">\r\n            <list>\r\n              <option value=\"kafka\" />\r\n            </list>\r\n          </option>\r\n          <option name=\"sourceFilePath\" value=\"docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"docker-compose.yml.zookeeper: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"services\">\r\n            <list>\r\n              <option value=\"zookeeper\" />\r\n            </list>\r\n          </option>\r\n          <option name=\"sourceFilePath\" value=\"docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Docker.docker-compose.yml.kafka: Compose Deployment\" />\r\n      <item itemvalue=\"Docker.docker-compose.yml.zookeeper: Compose Deployment\" />\r\n      <item itemvalue=\"JUnit.All in product-service\" />\r\n      <item itemvalue=\"Spring Boot.NotificationServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.ConfigServerApplication\" />\r\n      <item itemvalue=\"Spring Boot.PaymentServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.OrderServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.GatewayApplication\" />\r\n      <item itemvalue=\"Spring Boot.CustomerServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.DiscoveryServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.ProductServiceApplication\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Spring Boot.ProductServiceApplication\" />\r\n        <item itemvalue=\"Spring Boot.DiscoveryServiceApplication\" />\r\n        <item itemvalue=\"Docker.docker-compose.yml.zookeeper: Compose Deployment\" />\r\n        <item itemvalue=\"Docker.docker-compose.yml.kafka: Compose Deployment\" />\r\n        <item itemvalue=\"JUnit.All in product-service\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3c391e6-62d8-49b0-a03b-e07c5dbf0892\" name=\"Changes\" comment=\"\" />\r\n      <created>1743408571550</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1743408571550</updated>\r\n      <workItem from=\"1743408572745\" duration=\"10044000\" />\r\n      <workItem from=\"1743471184630\" duration=\"2019000\" />\r\n      <workItem from=\"1743478680964\" duration=\"1274000\" />\r\n      <workItem from=\"1743480011092\" duration=\"2450000\" />\r\n      <workItem from=\"1743488779833\" duration=\"10437000\" />\r\n      <workItem from=\"1743510663512\" duration=\"431000\" />\r\n      <workItem from=\"1743562123658\" duration=\"7370000\" />\r\n      <workItem from=\"1743570489031\" duration=\"13349000\" />\r\n      <workItem from=\"1743598115900\" duration=\"7855000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>\r\n          <line>26</line>\r\n          <option name=\"timeStamp\" value=\"4\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/services/impls/EmailServiceImpl.java</url>\r\n          <line>33</line>\r\n          <option name=\"timeStamp\" value=\"8\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/kafka/NotificationsConsumerKafkaService.java</url>\r\n          <line>49</line>\r\n          <option name=\"timeStamp\" value=\"10\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/kafka/NotificationsConsumerKafkaService.java</url>\r\n          <line>28</line>\r\n          <option name=\"timeStamp\" value=\"11\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/order-service/src/main/java/mk/orderservice/services/impls/CustomerOrderServiceImpl.java</url>\r\n          <line>42</line>\r\n          <option name=\"timeStamp\" value=\"14\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d082d86fe60c878342ec6ed37e8f4546c335d1eb)
++++ b/.idea/workspace.xml	(date 1743652040610)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="" />
++    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="Add initial service configurations and DTOs for order, payment, and customer services">
++      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -27,6 +30,23 @@
+       </list>
+     </option>
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {}
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/MinhKhanh693/MicroService.git",
++    "accountId": "d1804efb-e2a0-4abe-91f6-acf9965751a1"
++  }
++}]]></component>
+   <component name="JpbToolWindowState">
+     <option name="isToolWindowVisible" value="false" />
+   </component>
+@@ -36,11 +56,15 @@
+         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+       </MavenGeneralSettings>
+     </option>
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="ProjectErrors" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 0
+ }</component>
+   <component name="ProjectId" id="2v4e3959hURADeFhGdGHMj9rxCW" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+@@ -65,6 +89,8 @@
+     "RequestMappingsPanelWidth0": "75",
+     "RequestMappingsPanelWidth1": "75",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+     "Spring Boot.ConfigServerApplication.executor": "Run",
+     "Spring Boot.CustomerServiceApplication.executor": "Run",
+     "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+@@ -76,9 +102,10 @@
+     "database.data.extractors.current.export.id": "SQL Inserts",
+     "database.data.extractors.current.id": "SQL Inserts",
+     "extract.method.default.visibility": "private",
++    "git-widget-placeholder": "master",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/allProject/Java-Tutorial/Apache-Kafka/Kafka-limit-request",
++    "last_opened_file_path": "D:/allProject/Java-Tutorial/Microservices",
+     "node.js.detected.package.eslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+@@ -282,11 +309,25 @@
+       <workItem from="1743562123658" duration="7370000" />
+       <workItem from="1743570489031" duration="13349000" />
+       <workItem from="1743598115900" duration="7855000" />
++      <workItem from="1743651431329" duration="458000" />
++    </task>
++    <task id="LOCAL-00001" summary="Add initial service configurations and DTOs for order, payment, and customer services">
++      <option name="closed" value="true" />
++      <created>1743651611782</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1743651611782</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Add initial service configurations and DTOs for order, payment, and customer services" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add initial service configurations and DTOs for order, payment, and customer services" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

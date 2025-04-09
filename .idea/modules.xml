@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/services/order-service/order-service.iml" filepath="$PROJECT_DIR$/services/order-service/order-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/services/product-service/product-service.iml" filepath="$PROJECT_DIR$/services/product-service/product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/services/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/payment-service/payment-service.iml" filepath="$PROJECT_DIR$/services/payment-service/payment-service.iml" />
     </modules>
   </component>
 </project>

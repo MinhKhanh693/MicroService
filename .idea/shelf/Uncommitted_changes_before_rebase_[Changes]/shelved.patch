@@ -1,0 +1,362 @@
+Index: services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mk.auth.service.entities;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonManagedReference;\r\nimport jakarta.persistence.*;\r\nimport lombok.Getter;\r\nimport lombok.Setter;\r\nimport org.hibernate.annotations.ColumnDefault;\r\nimport org.springframework.security.core.GrantedAuthority;\r\nimport org.springframework.security.core.authority.SimpleGrantedAuthority;\r\nimport org.springframework.security.core.userdetails.UserDetails;\r\n\r\nimport java.time.Instant;\r\nimport java.time.LocalDate;\r\nimport java.util.*;\r\n\r\n@Getter\r\n@Setter\r\n@Entity\r\n@Table(name = \"tbl_user\")\r\npublic class TblUserEntity implements UserDetails {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = \"tbl_user_id_gen\")\r\n    @SequenceGenerator(name = \"tbl_user_id_gen\", sequenceName = \"tbl_user_id_seq\", allocationSize = 1)\r\n    @Column(name = \"id\", nullable = false)\r\n    private Integer id;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"first_name\")\r\n    private String firstName;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"last_name\")\r\n    private String lastName;\r\n\r\n    @Column(name = \"date_of_birth\")\r\n    private LocalDate dateOfBirth;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"gender\")\r\n    private String gender;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"phone\")\r\n    private String phone;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"email\")\r\n    private String email;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"username\")\r\n    private String username;\r\n\r\n    @jakarta.validation.constraints.Size(max = 255)\r\n    @Column(name = \"password\")\r\n    private String password;\r\n\r\n    @ColumnDefault(\"CURRENT_TIMESTAMP\")\r\n    @Column(name = \"created_at\")\r\n    private Instant createdAt;\r\n    @ColumnDefault(\"gen_random_uuid()\")\r\n    @Column(name = \"active_code\")\r\n    private UUID activeCode;\r\n\r\n    @ColumnDefault(\"CURRENT_TIMESTAMP\")\r\n    @Column(name = \"updated_at\")\r\n    private Instant updatedAt;\r\n\r\n    @OneToMany(mappedBy = \"user\", fetch = FetchType.EAGER, cascade = CascadeType.ALL)\r\n    @JsonManagedReference\r\n    private Set<mk.auth.service.entities.TblUserHasRoleEntity> tblUserHasRoles = new LinkedHashSet<>();\r\n\r\n    @Override\r\n    public Collection<? extends GrantedAuthority> getAuthorities() {\r\n        List<String> listRoleNames;\r\n        List<TblRoleEntity> roles = tblUserHasRoles.stream().map(TblUserHasRoleEntity::getRole).toList();\r\n        listRoleNames = roles.stream().map(tblRole -> tblRole.getName().name()).toList();\r\n        return listRoleNames.stream().map(SimpleGrantedAuthority::new).toList();\r\n    }\r\n\r\n    @Override\r\n    public boolean isAccountNonExpired() {\r\n        return UserDetails.super.isAccountNonExpired();\r\n    }\r\n\r\n    @Override\r\n    public boolean isAccountNonLocked() {\r\n        return UserDetails.super.isAccountNonLocked();\r\n    }\r\n\r\n    @Override\r\n    public boolean isCredentialsNonExpired() {\r\n        return UserDetails.super.isCredentialsNonExpired();\r\n    }\r\n\r\n    @Override\r\n    public boolean isEnabled() {\r\n        return UserDetails.super.isEnabled();\r\n    }\r\n\r\n\r\n/*\r\n TODO [Reverse Engineering] create field to map the 'status' column\r\n Available actions: Define target Java type | Uncomment as is | Remove column mapping\r\n    @Column(name = \"status\", columnDefinition = \"e_user_status\")\r\n    private Object status;\r\n*/\r\n/*\r\n TODO [Reverse Engineering] create field to map the 'type' column\r\n Available actions: Define target Java type | Uncomment as is | Remove column mapping\r\n    @Column(name = \"type\", columnDefinition = \"e_user_type\")\r\n    private Object type;\r\n*/\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java b/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java
+--- a/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java	(date 1744186151655)
+@@ -4,6 +4,8 @@
+ import jakarta.persistence.*;
+ import lombok.Getter;
+ import lombok.Setter;
++import mk.auth.service.enums.UserStatusEnum;
++import mk.auth.service.enums.UserTypeEnum;
+ import org.hibernate.annotations.ColumnDefault;
+ import org.springframework.security.core.GrantedAuthority;
+ import org.springframework.security.core.authority.SimpleGrantedAuthority;
+@@ -66,6 +68,14 @@
+     @Column(name = "updated_at")
+     private Instant updatedAt;
+ 
++    @Enumerated(EnumType.STRING)
++    @Column(name = "status", columnDefinition = "e_user_status")
++    private UserStatusEnum status;
++
++    @Enumerated(EnumType.STRING)
++    @Column(name = "type", columnDefinition = "e_user_type")
++    private UserTypeEnum type;
++
+     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+     @JsonManagedReference
+     private Set<mk.auth.service.entities.TblUserHasRoleEntity> tblUserHasRoles = new LinkedHashSet<>();
+@@ -95,20 +105,6 @@
+ 
+     @Override
+     public boolean isEnabled() {
+-        return UserDetails.super.isEnabled();
++        return UserStatusEnum.ACTIVE.equals(status);
+     }
+-
+-
+-/*
+- TODO [Reverse Engineering] create field to map the 'status' column
+- Available actions: Define target Java type | Uncomment as is | Remove column mapping
+-    @Column(name = "status", columnDefinition = "e_user_status")
+-    private Object status;
+-*/
+-/*
+- TODO [Reverse Engineering] create field to map the 'type' column
+- Available actions: Define target Java type | Uncomment as is | Remove column mapping
+-    @Column(name = "type", columnDefinition = "e_user_type")
+-    private Object type;
+-*/
+ }
+\ No newline at end of file
+Index: services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mk.gateway.filter;\r\n\r\nimport mk.gateway.dto.response.TblUserEntityResponseDto;\r\nimport mk.gateway.exception.InvalidTokenException;\r\nimport org.springframework.beans.factory.annotation.Value;\r\nimport org.springframework.cloud.gateway.filter.GatewayFilter;\r\nimport org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.HttpStatusCode;\r\nimport org.springframework.stereotype.Component;\r\nimport org.springframework.web.reactive.function.client.WebClient;\r\nimport org.springframework.web.server.ServerWebExchange;\r\nimport reactor.core.publisher.Mono;\r\n\r\n@Component\r\npublic class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {\r\n\r\n    @Value(\"${spring.application.auth-service-url}\")\r\n    private static String AUTH_SERVICE_URL;\r\n    private static final String AUTHORIZATION_HEADER = \"Authorization\";\r\n    private static final String BEARER_PREFIX = \"Bearer \";\r\n\r\n    private final WebClient webClient;\r\n\r\n    public JwtValidationGatewayFilterFactory(WebClient.Builder webClientBuilder) {\r\n        this.webClient = webClientBuilder.baseUrl(AUTH_SERVICE_URL).build();\r\n    }\r\n\r\n    @Override\r\n    public GatewayFilter apply(Object config) {\r\n        return (exchange, chain) -> {\r\n            String token = this.extractToken(exchange);\r\n            if (token == null) {\r\n                return this.unauthorizedResponse(exchange);\r\n            }\r\n\r\n            return webClient.get()\r\n                    .uri(uriBuilder -> uriBuilder\r\n                            .path(\"/validate-token\")\r\n                            .queryParam(\"token\", token)\r\n                            .queryParam(\"uri\", exchange.getRequest().getURI().toString())\r\n                            .build())\r\n                    .retrieve()\r\n                    .onStatus(HttpStatusCode::isError, response -> Mono.error(new InvalidTokenException(\"Invalid token\")))\r\n                    .bodyToMono(TblUserEntityResponseDto.class)\r\n                    .flatMap(userResponseDto -> {\r\n                        this.addUserHeaders(exchange, userResponseDto);\r\n                        return chain.filter(exchange);\r\n                    })\r\n                    .onErrorResume(e -> this.unauthorizedResponse(exchange));\r\n        };\r\n    }\r\n\r\n    private String extractToken(ServerWebExchange exchange) {\r\n        String token = exchange.getRequest().getHeaders().getFirst(AUTHORIZATION_HEADER);\r\n        if (token != null && token.startsWith(BEARER_PREFIX)) {\r\n            return token.substring(BEARER_PREFIX.length());\r\n        }\r\n        return null;\r\n    }\r\n\r\n    private void addUserHeaders(ServerWebExchange exchange, TblUserEntityResponseDto userResponseDto) {\r\n        exchange.getRequest().mutate()\r\n                .header(\"X-User-Id\", String.valueOf(userResponseDto.id()))\r\n                .header(\"X-User-Name\", userResponseDto.username())\r\n                .build();\r\n    }\r\n\r\n    private Mono<Void> unauthorizedResponse(ServerWebExchange exchange) {\r\n        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);\r\n        exchange.getResponse().getHeaders().add(\"Content-Type\", \"application/json\");\r\n        exchange.getResponse().getHeaders().add(\"WWW-Authenticate\", \"Bearer\");\r\n        byte[] bytes = \"{\\\"error\\\": \\\"Unauthorized\\\"}\".getBytes();\r\n        exchange.getResponse().getHeaders().setContentLength(bytes.length);\r\n        return exchange.getResponse().writeWith(Mono.just(exchange.getResponse().bufferFactory().wrap(bytes)));\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java b/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java
+--- a/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java	(date 1744186961851)
+@@ -15,7 +15,7 @@
+ @Component
+ public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
+ 
+-    @Value("${spring.application.auth-service-url}")
++    @Value("${application.config.auth-service-url}")
+     private static String AUTH_SERVICE_URL;
+     private static final String AUTHORIZATION_HEADER = "Authorization";
+     private static final String BEARER_PREFIX = "Bearer ";
+Index: services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mk.auth.service.repositories;\r\n\r\nimport mk.auth.service.entities.TblPermissionEntity;\r\nimport mk.auth.service.entities.TblRoleEntity;\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.data.jpa.repository.Query;\r\nimport org.springframework.stereotype.Repository;\r\n\r\nimport java.util.List;\r\n\r\n@Repository\r\npublic interface TblRoleEntityRepository extends JpaRepository<TblRoleEntity, Integer> {\r\n    @Query(\"SELECT p FROM TblRoleEntity r JOIN TblRoleHasPermissionEntity rp ON r = rp.role JOIN TblPermissionEntity p On p = rp.permission WHERE r.name In (:roleName)\")\r\n    public List<TblPermissionEntity> findPermissionsByListRoleName(List<String> roleName);\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java b/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java
+--- a/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java	(date 1744185933599)
+@@ -11,5 +11,5 @@
+ @Repository
+ public interface TblRoleEntityRepository extends JpaRepository<TblRoleEntity, Integer> {
+     @Query("SELECT p FROM TblRoleEntity r JOIN TblRoleHasPermissionEntity rp ON r = rp.role JOIN TblPermissionEntity p On p = rp.permission WHERE r.name In (:roleName)")
+-    public List<TblPermissionEntity> findPermissionsByListRoleName(List<String> roleName);
++    List<TblPermissionEntity> findPermissionsByListRoleName(List<String> roleName);
+ }
+\ No newline at end of file
+Index: services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mk.gateway;\r\n\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\nimport org.springframework.cloud.openfeign.EnableFeignClients;\r\n\r\n@SpringBootApplication\r\npublic class GatewayApplication {\r\n\r\n    public static void main(String[] args) {\r\n        SpringApplication.run(GatewayApplication.class, args);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java b/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java
+--- a/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java	(date 1744185892980)
+@@ -2,7 +2,6 @@
+ 
+ import org.springframework.boot.SpringApplication;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
+-import org.springframework.cloud.openfeign.EnableFeignClients;
+ 
+ @SpringBootApplication
+ public class GatewayApplication {
+Index: services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mk.auth.service.configs;\r\n\r\nimport lombok.RequiredArgsConstructor;\r\nimport mk.auth.service.services.UserServiceDetail;\r\nimport org.springframework.context.annotation.Bean;\r\nimport org.springframework.context.annotation.Configuration;\r\nimport org.springframework.security.authentication.AuthenticationManager;\r\nimport org.springframework.security.authentication.AuthenticationProvider;\r\nimport org.springframework.security.authentication.dao.DaoAuthenticationProvider;\r\nimport org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;\r\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\r\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\r\nimport org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;\r\nimport org.springframework.security.config.http.SessionCreationPolicy;\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\r\nimport org.springframework.security.crypto.password.PasswordEncoder;\r\nimport org.springframework.security.web.SecurityFilterChain;\r\n\r\n@Configuration\r\n@RequiredArgsConstructor\r\n@EnableWebSecurity\r\npublic class SecurityConfig {\r\n\r\n    private final UserServiceDetail userServiceDetail;\r\n\r\n    @Bean\r\n    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\r\n        return http\r\n                .csrf(AbstractHttpConfigurer::disable)\r\n                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))\r\n                .authenticationProvider(authenticationProvider())\r\n                .build();\r\n    }\r\n\r\n    @Bean\r\n    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {\r\n        return authenticationConfiguration.getAuthenticationManager();\r\n    }\r\n\r\n    @Bean\r\n    public AuthenticationProvider authenticationProvider() {\r\n        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();\r\n        provider.setPasswordEncoder(passwordEncoder());\r\n        provider.setUserDetailsService(this.userServiceDetail.userServiceDetail());\r\n        return provider;\r\n    }\r\n\r\n    @Bean\r\n    public PasswordEncoder passwordEncoder() {\r\n        return new BCryptPasswordEncoder();\r\n    }\r\n\r\n    @Bean\r\n    public SecurityFilterChain ignoredResources(HttpSecurity http) throws Exception {\r\n        http.securityMatcher(\"/actuator/**\", \"/v3/**\", \"/webjars/**\", \"/swagger-ui*/**\", \"/favicon.ico\", \"/api-docs/**\")\r\n                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());\r\n        return http.build();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java b/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java
+--- a/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java	(date 1744186458598)
+@@ -10,6 +10,7 @@
+ import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+ import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
++import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+ import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+ import org.springframework.security.config.http.SessionCreationPolicy;
+ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+@@ -20,17 +21,25 @@
+ @RequiredArgsConstructor
+ @EnableWebSecurity
+ public class SecurityConfig {
+-
+     private final UserServiceDetail userServiceDetail;
+ 
++
+     @Bean
+     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+-        return http
++        http
+                 .csrf(AbstractHttpConfigurer::disable)
+                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+-                .authenticationProvider(authenticationProvider())
+-                .build();
++                .authenticationProvider(authenticationProvider(userServiceDetail));
++        return http.build();
+     }
++
++    @Bean
++    public WebSecurityCustomizer ignoreResources() {
++        return webSecurity -> webSecurity
++                .ignoring()
++                .requestMatchers("/actuator/**", "/v3/**", "/webjars/**", "/swagger-ui*/*swagger-initializer.js", "/swagger-ui*/**", "/favicon.ico", "/api-docs/**");
++    }
++
+ 
+     @Bean
+     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+@@ -38,10 +47,10 @@
+     }
+ 
+     @Bean
+-    public AuthenticationProvider authenticationProvider() {
++    public AuthenticationProvider authenticationProvider(UserServiceDetail userServiceDetail) {
+         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+         provider.setPasswordEncoder(passwordEncoder());
+-        provider.setUserDetailsService(this.userServiceDetail.userServiceDetail());
++        provider.setUserDetailsService(userServiceDetail.userServiceDetail());
+         return provider;
+     }
+ 
+@@ -49,11 +58,4 @@
+     public PasswordEncoder passwordEncoder() {
+         return new BCryptPasswordEncoder();
+     }
+-
+-    @Bean
+-    public SecurityFilterChain ignoredResources(HttpSecurity http) throws Exception {
+-        http.securityMatcher("/actuator/**", "/v3/**", "/webjars/**", "/swagger-ui*/**", "/favicon.ico", "/api-docs/**")
+-                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());
+-        return http.build();
+-    }
+-}
+\ No newline at end of file
++}
+Index: .idea/git_toolbox_prj.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/git_toolbox_prj.xml b/.idea/git_toolbox_prj.xml
+new file mode 100644
+--- /dev/null	(date 1744185893056)
++++ b/.idea/git_toolbox_prj.xml	(date 1744185893056)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GitToolBoxProjectSettings">
++    <option name="commitMessageIssueKeyValidationOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++    <option name="commitMessageValidationEnabledOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3c391e6-62d8-49b0-a03b-e07c5dbf0892\" name=\"Changes\" comment=\"Add initial service configurations and DTOs for order, payment, and customer services\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/SigningRequestDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TblUserEntityResponseDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblGroupEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleHasPermissionEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasGroupEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasRoleEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/RoleNameEnum.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/TokenTypeEnum.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserStatusEnum.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserTypeEnum.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/ErrorResponse.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/InvalidDataException.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblUserEntityRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IAuthenticationService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/UserServiceDetail.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/dto/response/TblUserEntityResponseDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/GlobalHandlerException.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/InvalidTokenException.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/UnAuthorizedException.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/encodings.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/jpa.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/jpa.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/gateway-service/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/gateway-service/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Dockerfile\" />\r\n        <option value=\"com.intellij.jpb.FlywayMigrationScript\" />\r\n        <option value=\"com.intellij.jpb.NewClass\" />\r\n        <option value=\"com.intellij.jpb.JpaEntity\" />\r\n        <option value=\"Enum\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Record\" />\r\n        <option value=\"com.intellij.jpb.JpaRepository\" />\r\n        <option value=\"com.intellij.jpb.NewRecord\" />\r\n        <option value=\"Exception\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;MinhKhanh693&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"recentBranches\">\r\n      <RecentBranches>\r\n        <option name=\"branchesForRepo\">\r\n          <list>\r\n            <RecentBranchesForRepo>\r\n              <option name=\"branches\">\r\n                <list>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"master\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1743652461\" />\r\n                  </RecentBranch>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"main\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1743652402\" />\r\n                  </RecentBranch>\r\n                </list>\r\n              </option>\r\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\r\n            </RecentBranchesForRepo>\r\n          </list>\r\n        </option>\r\n      </RecentBranches>\r\n    </option>\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/MinhKhanh693/MicroService.git&quot;,\r\n    &quot;accountId&quot;: &quot;d1804efb-e2a0-4abe-91f6-acf9965751a1&quot;\r\n  }\r\n}</component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"isToolWindowVisible\" value=\"false\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2v4e3959hURADeFhGdGHMj9rxCW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Docker.docker-compose.yml.kafka: Compose Deployment.executor\": \"Run\",\r\n    \"Docker.docker-compose.yml.mongodb: Compose Deployment.executor\": \"Run\",\r\n    \"Docker.docker-compose.yml.zookeeper: Compose Deployment.executor\": \"Run\",\r\n    \"DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY\": \"true\",\r\n    \"HTTP Request.generated-requests | #21.executor\": \"Run\",\r\n    \"HTTP Request.generated-requests | #22.executor\": \"Run\",\r\n    \"HTTP Request.generated-requests | #23.executor\": \"Run\",\r\n    \"JUnit.All in product-service.executor\": \"Run\",\r\n    \"Maven.auth-service [clean].executor\": \"Run\",\r\n    \"Maven.auth-service [compile].executor\": \"Run\",\r\n    \"Maven.auth-service [install].executor\": \"Run\",\r\n    \"Maven.gateway-service [clean].executor\": \"Run\",\r\n    \"Maven.gateway-service [install].executor\": \"Run\",\r\n    \"Maven.order-service [clean].executor\": \"Run\",\r\n    \"Maven.order-service [compile].executor\": \"Run\",\r\n    \"Maven.order-service [install].executor\": \"Run\",\r\n    \"Maven.product-service [clean].executor\": \"Run\",\r\n    \"Maven.product-service [compile].executor\": \"Run\",\r\n    \"Maven.product-service [install].executor\": \"Run\",\r\n    \"Maven.product-service [test].executor\": \"Run\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"Spring Boot.AuthServiceApplication.executor\": \"Debug\",\r\n    \"Spring Boot.ConfigServerApplication.executor\": \"Run\",\r\n    \"Spring Boot.CustomerServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.DiscoveryServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.GatewayApplication.executor\": \"Debug\",\r\n    \"Spring Boot.NotificationServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.OrderServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.PaymentServiceApplication.executor\": \"Debug\",\r\n    \"Spring Boot.ProductServiceApplication.executor\": \"Run\",\r\n    \"database.data.extractors.current.export.id\": \"SQL Inserts\",\r\n    \"database.data.extractors.current.id\": \"SQL Inserts\",\r\n    \"extract.method.default.visibility\": \"private\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/allProject/Java-Tutorial/Quiz-App-Project-Microservices/backend-service\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"run.configurations.included.in.services\": \"true\",\r\n    \"settings.editor.selected.configurable\": \"settings.sync\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mongo\",\r\n      \"postgresql\"\r\n    ],\r\n    \"com.intellij.ide.scratch.LRUPopupBuilder$1/\": [\r\n      \"PostgreSQL\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"ReactorSettings\">\r\n    <option name=\"notificationShown\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"mk.auth.service.securities\" />\r\n      <recent name=\"mk.auth.service.services\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\auth-service\\src\\main\\java\\mk\\auth\\service\\enums\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\auth-service\\src\\main\\java\\mk\\auth\\service\\securities\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\config-server\\src\\main\\resources\\configuration\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\java\\mk\\orderservice\\entities\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\\order-service\\src\\main\\resources\\db\" />\r\n      <recent name=\"D:\\allProject\\Java-Tutorial\\Microservices\\services\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"mk.gateway.dto.response\" />\r\n      <recent name=\"mk.auth.service.controllers\" />\r\n      <recent name=\"mk.orderservice.controllers.requests\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunAnythingCache\">\r\n    <myKeys>\r\n      <visibility group=\"Gradle Tasks\" flag=\"true\" />\r\n      <visibility group=\"Grunt\" flag=\"true\" />\r\n      <visibility group=\"Gulp\" flag=\"true\" />\r\n      <visibility group=\"HTTP Requests\" flag=\"true\" />\r\n      <visibility group=\"Maven Goals\" flag=\"true\" />\r\n      <visibility group=\"Recent projects\" flag=\"true\" />\r\n      <visibility group=\"Run configurations\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.httpClient.http.request.run.HttpRequestRunAnythingProvider\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.ide.actions.runAnything.RunAnythingRunConfigurationProvider\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.ide.actions.runAnything.activity.RunAnythingRecentProjectProvider\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.lang.javascript.buildTools.grunt.GruntRunAnythingProvider\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.lang.javascript.buildTools.gulp.GulpRunAnythingProvider\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.lang.javascript.buildTools.npm.NpmRunAnythingProvider.Npm\" flag=\"true\" />\r\n      <visibility group=\"com.intellij.lang.javascript.buildTools.npm.NpmRunAnythingProvider.Yarn\" flag=\"true\" />\r\n      <visibility group=\"npm\" flag=\"true\" />\r\n      <visibility group=\"org.jetbrains.idea.maven.execution.MavenRunAnythingProvider\" flag=\"true\" />\r\n      <visibility group=\"org.jetbrains.plugins.gradle.execution.GradleRunAnythingProvider\" flag=\"true\" />\r\n      <visibility group=\"yarn\" flag=\"true\" />\r\n    </myKeys>\r\n    <option name=\"myCommands\">\r\n      <command value=\" \" />\r\n    </option>\r\n  </component>\r\n  <component name=\"RunDashboard\">\r\n    <option name=\"configurationTypes\">\r\n      <set>\r\n        <option value=\"KtorApplicationConfigurationType\" />\r\n        <option value=\"MicronautRunConfigurationType\" />\r\n        <option value=\"QuarkusRunConfigurationType\" />\r\n        <option value=\"SpringBootApplicationConfigurationType\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.AuthServiceApplication\">\r\n    <configuration name=\"generated-requests | #22\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" nameIsGenerated=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" executionIdentifier=\"#22\" index=\"22\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"generated-requests | #23\" type=\"HttpClient.HttpRequestRunConfigurationType\" factoryName=\"HTTP Request\" temporary=\"true\" nameIsGenerated=\"true\" path=\"$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http\" executionIdentifier=\"#23\" index=\"23\" runType=\"Run single request\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"AuthServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"auth-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.auth.service.AuthServiceApplication\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"mk.auth.service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ConfigServerApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"config-server\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.configserver.ConfigServerApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"CustomerServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"customer-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.customerservice.CustomerServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"DiscoveryServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"discovery-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.discoveryservice.DiscoveryServiceApplication\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"mk.discoveryservice.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"GatewayApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"gateway-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.gateway.GatewayApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"NotificationServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"notification-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.notificationservice.NotificationServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"OrderServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"order-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.orderservice.OrderServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PaymentServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"payment-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.paymentservice.PaymentServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ProductServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"product-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"mk.productservice.ProductServiceApplication\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"mk.productservice.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings />\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"HTTP Request.generated-requests | #22\" />\r\n      <item itemvalue=\"HTTP Request.generated-requests | #23\" />\r\n      <item itemvalue=\"Spring Boot.NotificationServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.ConfigServerApplication\" />\r\n      <item itemvalue=\"Spring Boot.PaymentServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.OrderServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.GatewayApplication\" />\r\n      <item itemvalue=\"Spring Boot.CustomerServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.AuthServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.ProductServiceApplication\" />\r\n      <item itemvalue=\"Spring Boot.DiscoveryServiceApplication\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Spring Boot.AuthServiceApplication\" />\r\n        <item itemvalue=\"Spring Boot.DiscoveryServiceApplication\" />\r\n        <item itemvalue=\"Spring Boot.ProductServiceApplication\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests | #23\" />\r\n        <item itemvalue=\"HTTP Request.generated-requests | #22\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3c391e6-62d8-49b0-a03b-e07c5dbf0892\" name=\"Changes\" comment=\"\" />\r\n      <created>1743408571550</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1743408571550</updated>\r\n      <workItem from=\"1743408572745\" duration=\"10044000\" />\r\n      <workItem from=\"1743471184630\" duration=\"2019000\" />\r\n      <workItem from=\"1743478680964\" duration=\"1274000\" />\r\n      <workItem from=\"1743480011092\" duration=\"2450000\" />\r\n      <workItem from=\"1743488779833\" duration=\"10437000\" />\r\n      <workItem from=\"1743510663512\" duration=\"431000\" />\r\n      <workItem from=\"1743562123658\" duration=\"7370000\" />\r\n      <workItem from=\"1743570489031\" duration=\"13349000\" />\r\n      <workItem from=\"1743598115900\" duration=\"7855000\" />\r\n      <workItem from=\"1743837899188\" duration=\"7219000\" />\r\n      <workItem from=\"1744097002811\" duration=\"6282000\" />\r\n      <workItem from=\"1744103398793\" duration=\"738000\" />\r\n      <workItem from=\"1744182367828\" duration=\"3368000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/main\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Add initial service configurations and DTOs for order, payment, and customer services\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add initial service configurations and DTOs for order, payment, and customer services\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/services/impls/EmailServiceImpl.java</url>\r\n          <line>33</line>\r\n          <option name=\"timeStamp\" value=\"8\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/kafka/NotificationsConsumerKafkaService.java</url>\r\n          <line>49</line>\r\n          <option name=\"timeStamp\" value=\"10\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/kafka/NotificationsConsumerKafkaService.java</url>\r\n          <line>28</line>\r\n          <option name=\"timeStamp\" value=\"11\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/order-service/src/main/java/mk/orderservice/services/impls/CustomerOrderServiceImpl.java</url>\r\n          <line>42</line>\r\n          <option name=\"timeStamp\" value=\"14\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>\r\n          <line>28</line>\r\n          <option name=\"timeStamp\" value=\"16\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n    <pin-to-top-manager>\r\n      <pinned-members>\r\n        <PinnedItemInfo parentTag=\"java.net.URI\" memberName=\"path\" />\r\n      </pinned-members>\r\n    </pin-to-top-manager>\r\n    <watches-manager>\r\n      <configuration name=\"SpringBootApplicationConfigurationType\">\r\n        <watch expression=\"((URI)((MutatedServerHttpRequest)((MutativeDecorator)exchange).request).uri).path\" custom=\"org.springframework.http.server.reactive.DefaultServerHttpRequestBuilder.MutatedServerHttpRequest,org.springframework.web.server.DefaultServerWebExchangeBuilder.MutativeDecorator,java.net.URI\" />\r\n      </configuration>\r\n    </watches-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4a9611c5d81efffde68809083cbc6647568f732c)
++++ b/.idea/workspace.xml	(date 1744186767450)
+@@ -4,59 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="Add initial service configurations and DTOs for order, payment, and customer services">
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/SigningRequestDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TblUserEntityResponseDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblGroupEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleHasPermissionEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasGroupEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasRoleEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/RoleNameEnum.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/TokenTypeEnum.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserStatusEnum.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserTypeEnum.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/ErrorResponse.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/InvalidDataException.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblUserEntityRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IAuthenticationService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/UserServiceDetail.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/dto/response/TblUserEntityResponseDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/GlobalHandlerException.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/InvalidTokenException.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/UnAuthorizedException.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="Add authentication service with JWT support, user and role management, and exception handling">
++      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -134,6 +89,9 @@
+         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+       </MavenGeneralSettings>
+     </option>
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 0
+@@ -172,6 +130,7 @@
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.git.unshallow": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+     "Spring Boot.AuthServiceApplication.executor": "Debug",
+     "Spring Boot.ConfigServerApplication.executor": "Run",
+     "Spring Boot.CustomerServiceApplication.executor": "Run",
+@@ -191,7 +150,7 @@
+     "node.js.detected.package.eslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Project",
++    "project.structure.last.edited": "Libraries",
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.2",
+     "run.configurations.included.in.services": "true",
+@@ -412,8 +371,17 @@
+       <workItem from="1743837899188" duration="7219000" />
+       <workItem from="1744097002811" duration="6282000" />
+       <workItem from="1744103398793" duration="738000" />
+-      <workItem from="1744182367828" duration="3368000" />
++      <workItem from="1744182367828" duration="4387000" />
+     </task>
++    <task id="LOCAL-00001" summary="Add authentication service with JWT support, user and role management, and exception handling">
++      <option name="closed" value="true" />
++      <created>1744185860254</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1744185860254</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -444,7 +412,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Add initial service configurations and DTOs for order, payment, and customer services" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add initial service configurations and DTOs for order, payment, and customer services" />
++    <MESSAGE value="Add authentication service with JWT support, user and role management, and exception handling" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add authentication service with JWT support, user and role management, and exception handling" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -473,6 +442,16 @@
+           <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>
+           <line>28</line>
+           <option name="timeStamp" value="16" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java</url>
++          <line>31</line>
++          <option name="timeStamp" value="27" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java</url>
++          <line>64</line>
++          <option name="timeStamp" value="28" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>

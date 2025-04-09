@@ -4,7 +4,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="" />
+    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154130.400.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154258.400.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154331.400.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154437.500.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_Apr_2025_10_53_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_Apr_2025_10_53__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/AuthServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/SigningRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TblUserEntityResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblGroupEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleHasPermissionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasGroupEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasRoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/RoleNameEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/TokenTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/InvalidDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblUserEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IAuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/UserServiceDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/test/java/mk/auth/service/AuthServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/dto/response/TblUserEntityResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/GlobalHandlerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/InvalidTokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/UnAuthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,16 +95,62 @@
         <option value="com.intellij.jpb.FlywayMigrationScript" />
         <option value="com.intellij.jpb.NewClass" />
         <option value="com.intellij.jpb.JpaEntity" />
-        <option value="Exception" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
         <option value="com.intellij.jpb.JpaRepository" />
         <option value="com.intellij.jpb.NewRecord" />
-        <option value="Record" />
-        <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MinhKhanh693&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1743652461" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1743652402" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MinhKhanh693/MicroService.git&quot;,
+    &quot;accountId&quot;: &quot;d1804efb-e2a0-4abe-91f6-acf9965751a1&quot;
+  }
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -37,72 +161,93 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2v4e3959hURADeFhGdGHMj9rxCW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker-compose.yml.kafka: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.mongodb: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.zookeeper: Compose Deployment.executor": "Run",
-    "DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY": "true",
-    "JUnit.All in product-service.executor": "Run",
-    "Maven.gateway-service [clean].executor": "Run",
-    "Maven.gateway-service [install].executor": "Run",
-    "Maven.order-service [clean].executor": "Run",
-    "Maven.order-service [compile].executor": "Run",
-    "Maven.order-service [install].executor": "Run",
-    "Maven.product-service [clean].executor": "Run",
-    "Maven.product-service [compile].executor": "Run",
-    "Maven.product-service [install].executor": "Run",
-    "Maven.product-service [test].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.CustomerServiceApplication.executor": "Run",
-    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
-    "Spring Boot.GatewayApplication.executor": "Run",
-    "Spring Boot.NotificationServiceApplication.executor": "Run",
-    "Spring Boot.OrderServiceApplication.executor": "Run",
-    "Spring Boot.PaymentServiceApplication.executor": "Run",
-    "Spring Boot.ProductServiceApplication.executor": "Run",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "extract.method.default.visibility": "private",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/allProject/Java-Tutorial/Apache-Kafka/Kafka-limit-request",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "settings.sync"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.mongodb: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.zookeeper: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY&quot;: &quot;true&quot;,
+    &quot;HTTP Request.generated-requests | #21.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #22.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #23.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in product-service.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auth-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auth-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auth-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gateway-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gateway-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.order-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.order-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.order-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-service [test].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/allProject/Java-Tutorial/Quiz-App-Project-Microservices/backend-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "PostgreSQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="mk.auth.service.securities" />
+      <recent name="mk.auth.service.services" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\allProject\Java-Tutorial\Microservices\services\auth-service\src\main\java\mk\auth\service\enums" />
+      <recent name="D:\allProject\Java-Tutorial\Microservices\services\auth-service\src\main\java\mk\auth\service\securities" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\config-server\src\main\resources\configuration" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\order-service\src\main\java\mk\orderservice\entities" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\order-service\src\main\resources" />
@@ -112,8 +257,35 @@
       <recent name="D:\allProject\Java-Tutorial\Microservices\services" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mk.gateway.dto.response" />
+      <recent name="mk.auth.service.controllers" />
       <recent name="mk.orderservice.controllers.requests" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle Tasks" flag="true" />
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP Requests" flag="true" />
+      <visibility group="Maven Goals" flag="true" />
+      <visibility group="Recent projects" flag="true" />
+      <visibility group="Run configurations" flag="true" />
+      <visibility group="com.intellij.httpClient.http.request.run.HttpRequestRunAnythingProvider" flag="true" />
+      <visibility group="com.intellij.ide.actions.runAnything.RunAnythingRunConfigurationProvider" flag="true" />
+      <visibility group="com.intellij.ide.actions.runAnything.activity.RunAnythingRecentProjectProvider" flag="true" />
+      <visibility group="com.intellij.lang.javascript.buildTools.grunt.GruntRunAnythingProvider" flag="true" />
+      <visibility group="com.intellij.lang.javascript.buildTools.gulp.GulpRunAnythingProvider" flag="true" />
+      <visibility group="com.intellij.lang.javascript.buildTools.npm.NpmRunAnythingProvider.Npm" flag="true" />
+      <visibility group="com.intellij.lang.javascript.buildTools.npm.NpmRunAnythingProvider.Yarn" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="org.jetbrains.idea.maven.execution.MavenRunAnythingProvider" flag="true" />
+      <visibility group="org.jetbrains.plugins.gradle.execution.GradleRunAnythingProvider" flag="true" />
+      <visibility group="yarn" flag="true" />
+    </myKeys>
+    <option name="myCommands">
+      <command value=" " />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -125,11 +297,22 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
-    <configuration name="All in product-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product-service" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+  <component name="RunManager" selected="Spring Boot.AuthServiceApplication">
+    <configuration name="generated-requests | #22" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#22" index="22" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #23" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#23" index="23" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="auth-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.auth.service.AuthServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mk.auth.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -208,52 +391,26 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="kafka" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.zookeeper: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="zookeeper" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.zookeeper: Compose Deployment" />
-      <item itemvalue="JUnit.All in product-service" />
+      <item itemvalue="HTTP Request.generated-requests | #22" />
+      <item itemvalue="HTTP Request.generated-requests | #23" />
       <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
       <item itemvalue="Spring Boot.PaymentServiceApplication" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
-      <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.ProductServiceApplication" />
+      <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ProductServiceApplication" />
+        <item itemvalue="Spring Boot.AuthServiceApplication" />
         <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
-        <item itemvalue="Docker.docker-compose.yml.zookeeper: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-        <item itemvalue="JUnit.All in product-service" />
+        <item itemvalue="Spring Boot.ProductServiceApplication" />
+        <item itemvalue="HTTP Request.generated-requests | #23" />
+        <item itemvalue="HTTP Request.generated-requests | #22" />
       </list>
     </recent_temporary>
   </component>
@@ -282,20 +439,56 @@
       <workItem from="1743562123658" duration="7370000" />
       <workItem from="1743570489031" duration="13349000" />
       <workItem from="1743598115900" duration="7855000" />
+      <workItem from="1743837899188" duration="7219000" />
+      <workItem from="1744097002811" duration="6282000" />
+      <workItem from="1744103398793" duration="738000" />
+      <workItem from="1744182367828" duration="6537000" />
     </task>
+    <task id="LOCAL-00001" summary="Add authentication service with JWT support, user and role management, and exception handling">
+      <option name="closed" value="true" />
+      <created>1744185860254</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744185860254</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add initial service configurations and DTOs for order, payment, and customer services" />
+    <MESSAGE value="Add authentication service with JWT support, user and role management, and exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add authentication service with JWT support, user and role management, and exception handling" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/services/notification-service/src/main/java/mk/notificationservice/services/impls/EmailServiceImpl.java</url>
           <line>33</line>
@@ -316,7 +509,23 @@
           <line>42</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.net.URI" memberName="path" />
+        <PinnedItemInfo parentTag="org.springframework.cloud.gateway.handler.FilteringWebHandler$DefaultGatewayFilterChain" memberName="index" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((URI)((MutatedServerHttpRequest)((MutativeDecorator)exchange).request).uri).path" custom="org.springframework.http.server.reactive.DefaultServerHttpRequestBuilder.MutatedServerHttpRequest,org.springframework.web.server.DefaultServerWebExchangeBuilder.MutativeDecorator,java.net.URI" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

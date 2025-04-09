@@ -13,6 +13,7 @@ import mk.paymentservice.services.IPaymentService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class PaymentServiceImpl implements IPaymentService {
 
     @Override
     public PaymentResponseDto createPayment(PaymentRequestDto request) {
+        List<PaymentResponseDto> paymentDTOs = this.paymentEntityRepository.findPaymentDTOs();
         PaymentEntity newPayment = this.paymentMapper.toPayment(request);
         newPayment.setCreatedDate(LocalDateTime.now());
         var payment = this.paymentEntityRepository.save(newPayment);
