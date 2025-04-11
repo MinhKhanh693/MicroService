@@ -10,6 +10,15 @@ spring:
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      port: 10635
+      host: redis-10635.c325.us-east-1-4.ec2.redns.redis-cloud.com
+      username: default
+      password: XBrv15tfNjgaSZ7Efz5Sv3nKw2FFhBvc
+      database: 0
+    cache:
+      type: redis
 jwt:
   secretToken: bfa63028d03263226c8e955e27bf04ea9bbc1a6534b4bc1eaa6410dbf935dd6b
   expiration: 3600

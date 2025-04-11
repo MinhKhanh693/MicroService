@@ -1,6 +1,7 @@
 package mk.productservice.controllers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import mk.productservice.controllers.requests.CreateProductRequestDto;
 import mk.productservice.controllers.requests.ProductPurchaseRequestDto;
 import mk.productservice.controllers.requests.UpdateProductRequestDto;
@@ -11,10 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
+@Slf4j(topic = "PRODUCT_CONTROLLER")
 public class ProductController {
     private final IProductService productService;
 
@@ -37,7 +40,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>> getAllProducts() {
+    public ResponseEntity<List<ProductDto>> getAllProducts(@RequestHeader Map<String, String> headers) {
+        log.info("Headers: {}", headers);
         List<ProductDto> products = this.productService.getAllProducts();
         return ResponseEntity.ok(products);
     }

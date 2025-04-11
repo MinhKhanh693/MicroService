@@ -3,10 +3,10 @@ package mk.auth.service.services.impls;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mk.auth.service.dtos.TblPermissionEntityDTO;
 import mk.auth.service.dtos.requests.SigningRequestDto;
 import mk.auth.service.dtos.response.TblUserEntityResponseDto;
 import mk.auth.service.dtos.response.TokenResponseDto;
-import mk.auth.service.entities.TblPermissionEntity;
 import mk.auth.service.entities.TblUserEntity;
 import mk.auth.service.enums.TokenTypeEnum;
 import mk.auth.service.exceptions.InvalidDataException;
@@ -14,6 +14,7 @@ import mk.auth.service.repositories.TblRoleEntityRepository;
 import mk.auth.service.repositories.TblUserEntityRepository;
 import mk.auth.service.services.IAuthenticationService;
 import mk.auth.service.services.IJwtService;
+import mk.auth.service.services.IPermissionService;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -34,6 +35,8 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
     private final TblRoleEntityRepository roleRepository;
     private final AuthenticationManager authenticationManager;
     private final IJwtService jwtService;
+    private final IPermissionService permissionService;
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     public TokenResponseDto getAccessToken(SigningRequestDto signingRequestDto) {
@@ -93,17 +96,19 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
                 .toList();
     }
 
-    private void validatePermissions(List<String> authorities, String uri) {
-
-        List<TblPermissionEntity> permissions = roleRepository.findPermissionsByListRoleName(authorities);
-        AntPathMatcher pathMatcher = new AntPathMatcher();
+    public void validatePermissions(List<String> authorities, String uri) {
+        // Gọi phương thức thông qua service đã inject (đi qua Proxy)
+        List<TblPermissionEntityDTO> permissions = this.permissionService.getPermissionsByRoleNames(authorities);
 
         boolean hasPermission = permissions.stream()
-                .anyMatch(permission -> pathMatcher.match(permission.getPath(), uri));
+                .anyMatch(permission -> permission != null && permission.getPath() != null &&
+                        pathMatcher.match(permission.getPath(), uri));
 
         if (!hasPermission) {
-            throw new AccessDeniedException("Access denied: insufficient permissions");
+            log.warn("ACCESS DENIED - URI: '{}', Authorities: {}. No matching permission DTO in cached list.", uri, authorities);
+            throw new AccessDeniedException("Access is denied: insufficient permissions for " + uri);
         }
+        log.debug("Permission granted for URI '{}' with authorities {}.", uri, authorities);
     }
 
     private TokenResponseDto generateTokenResponse(TblUserEntity user, List<String> authorities) {
