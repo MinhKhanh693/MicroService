@@ -29,6 +29,17 @@ public class TblRoleEntity {
     @OneToMany(mappedBy = "role")
     private Set<mk.auth.service.entities.TblUserHasRoleEntity> tblUserHasRoles = new LinkedHashSet<>();
 
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "tbl_role_has_permission", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
+    private Set<TblPermissionEntity> permissions = new LinkedHashSet<>();
+
+    public void removePermission(TblPermissionEntity permission) {
+        if (permissions != null) {
+            permissions.remove(permission);
+            permission.getRoles().remove(this);
+        }
+    }
+
     @Enumerated(EnumType.STRING)
     @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private RoleNameEnum name;

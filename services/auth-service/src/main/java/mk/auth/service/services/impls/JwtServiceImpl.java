@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +61,12 @@ public class JwtServiceImpl implements IJwtService {
     public Claims extractPayload(String token, TokenTypeEnum tokenType) {
         log.info("Extracting payload from token with type: {}", tokenType);
         return parseToken(token, tokenType);
+    }
+
+    @Override
+    public Instant getExpirationDateFromToken(String accessToken) {
+        Claims claims = parseToken(accessToken, TokenTypeEnum.ACCESS_TOKEN);
+        return claims.getExpiration().toInstant();
     }
 
     private Claims parseToken(String token, TokenTypeEnum tokenType) {

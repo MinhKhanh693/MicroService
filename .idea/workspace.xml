@@ -4,84 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/user_database.b2usbQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f6582aee-725d-4b8c-9a8e-fd36f7a019da/storage_v2/_src_/database/user_database.b2usbQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154130.400.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154258.400.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154331.400.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2025-04-03T154437.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_Apr_2025_10_53_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_Apr_2025_10_53__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/AuthServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/SigningRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TblUserEntityResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblGroupEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleHasPermissionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasGroupEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserHasRoleEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/RoleNameEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/TokenTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/enums/UserTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/exceptions/InvalidDataException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblRoleEntityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblUserEntityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IAuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/UserServiceDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth-service/src/test/java/mk/auth/service/AuthServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/dto/response/TblUserEntityResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/GlobalHandlerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/InvalidTokenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/exception/UnAuthorizedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" afterDir="false" />
+    <list default="true" id="d3c391e6-62d8-49b0-a03b-e07c5dbf0892" name="Changes" comment="Implement Redis caching for permission management and enhance authentication service">
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/OpenApiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/PermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/CreateTblPermissionEntityRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/requests/UpdateTblPermissionEntityRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TblPermissionEntityResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/repositories/TblPermissionEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/user-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/dto/TblUserEntityExcelExportDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/dto/TblUserEntityExcelImportDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/dto/response/TblUserEntityResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/entity/TblUserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/enums/UserStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/enums/UserTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/repository/TblUserEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/service/IExcelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/service/impl/ExcelServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/order_microservice.wtQLJw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/payment_microservice.ClXOUw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f4478bd-1c7c-49fe-8acc-a12232dbeb39/storage_v2/_src_/database/product_microservice.wXwjtQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34693b3a-02a8-4d4e-9010-6e1a98fea70d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/configs/RedisCacheConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/TblPermissionEntityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/TblPermissionEntityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/dtos/response/TokenResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblPermissionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblRoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/entities/TblUserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/init/CacheWarmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/init/CacheWarmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IJwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IPermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/IPermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/services/impls/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/util/AuthoritiesKeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/java/mk/auth/service/util/AuthoritiesKeyGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/auth-service.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services/config-server/src/main/resources/configuration/gateway-service.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/GatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/controllers/responses/PaymentResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/repositories/PaymentEntityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway-service/src/main/java/mk/gateway/filter/JwtValidationGatewayFilterFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,13 +64,13 @@
         <option value="Dockerfile" />
         <option value="com.intellij.jpb.FlywayMigrationScript" />
         <option value="com.intellij.jpb.NewClass" />
-        <option value="com.intellij.jpb.JpaEntity" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Exception" />
+        <option value="com.intellij.jpb.JpaEntity" />
         <option value="com.intellij.jpb.JpaRepository" />
         <option value="com.intellij.jpb.NewRecord" />
-        <option value="Exception" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -128,6 +98,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="implementRedisForCachePermission" />
+                    <option name="lastUsedInstant" value="1744189014" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
                     <option name="lastUsedInstant" value="1743652461" />
@@ -168,7 +142,6 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2v4e3959hURADeFhGdGHMj9rxCW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -202,26 +175,28 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Debug&quot;,
     &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Excel (xlsx)&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;implementRedisForCachePermission&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/allProject/Java-Tutorial/Quiz-App-Project-Microservices/backend-service&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/allProject/Java-Tutorial/Microservices&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
@@ -230,7 +205,8 @@
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mongo&quot;,
-      &quot;postgresql&quot;
+      &quot;postgresql&quot;,
+      &quot;redis&quot;
     ],
     &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
       &quot;PostgreSQL&quot;
@@ -246,20 +222,25 @@
       <recent name="mk.auth.service.services" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\allProject\Java-Tutorial\Microservices\services\user-service\src\main\java\mk\user\service" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\auth-service\src\main\java\mk\auth\service\enums" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\auth-service\src\main\java\mk\auth\service\securities" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\config-server\src\main\resources\configuration" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\order-service\src\main\java\mk\orderservice\entities" />
-      <recent name="D:\allProject\Java-Tutorial\Microservices\services\order-service\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\allProject\Java-Tutorial\Microservices\services\order-service\src\main\resources\db" />
       <recent name="D:\allProject\Java-Tutorial\Microservices\services" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="mk.user.service.service" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mk.user.service.dto" />
+      <recent name="mk.auth.service.configs" />
+      <recent name="mk.auth.service.dtos.requests" />
       <recent name="mk.gateway.dto.response" />
       <recent name="mk.auth.service.controllers" />
-      <recent name="mk.orderservice.controllers.requests" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -385,6 +366,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.user.service.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -392,33 +380,30 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #22" />
-      <item itemvalue="HTTP Request.generated-requests | #23" />
-      <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
-      <item itemvalue="Spring Boot.PaymentServiceApplication" />
-      <item itemvalue="Spring Boot.OrderServiceApplication" />
-      <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.NotificationServiceApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
-      <item itemvalue="Spring Boot.ProductServiceApplication" />
       <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+      <item itemvalue="Spring Boot.ProductServiceApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.AuthServiceApplication" />
-        <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
         <item itemvalue="Spring Boot.ProductServiceApplication" />
-        <item itemvalue="HTTP Request.generated-requests | #23" />
-        <item itemvalue="HTTP Request.generated-requests | #22" />
+        <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
       </set>
     </attachedChunks>
   </component>
@@ -442,7 +427,20 @@
       <workItem from="1743837899188" duration="7219000" />
       <workItem from="1744097002811" duration="6282000" />
       <workItem from="1744103398793" duration="738000" />
-      <workItem from="1744182367828" duration="6537000" />
+      <workItem from="1744182367828" duration="11231000" />
+      <workItem from="1744267693680" duration="421000" />
+      <workItem from="1744268165039" duration="8596000" />
+      <workItem from="1744342947079" duration="35000" />
+      <workItem from="1744342994880" duration="870000" />
+      <workItem from="1744353633290" duration="818000" />
+      <workItem from="1744354477267" duration="8714000" />
+      <workItem from="1744427760713" duration="34000" />
+      <workItem from="1744615160830" duration="10062000" />
+      <workItem from="1744689850478" duration="34000" />
+      <workItem from="1745243262148" duration="1272000" />
+      <workItem from="1745305795657" duration="366000" />
+      <workItem from="1754962223604" duration="796000" />
+      <workItem from="1754983390302" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="Add authentication service with JWT support, user and role management, and exception handling">
       <option name="closed" value="true" />
@@ -452,15 +450,47 @@
       <option name="project" value="LOCAL" />
       <updated>1744185860254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add initial implementation of authentication service with JWT support">
+      <option name="closed" value="true" />
+      <created>1744188970345</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744188970345</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implement Redis caching for permission management and enhance authentication service">
+      <option name="closed" value="true" />
+      <created>1744353813926</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744353813926</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="668fd597-883e-4b17-ba9a-1aab6ae47c7b" value="TOOL_WINDOW" />
+        <entry key="2bf936c6-2a4b-4751-944b-44050c513bb4" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="2bf936c6-2a4b-4751-944b-44050c513bb4">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="668fd597-883e-4b17-ba9a-1aab6ae47c7b">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -484,7 +514,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add initial service configurations and DTOs for order, payment, and customer services" />
     <MESSAGE value="Add authentication service with JWT support, user and role management, and exception handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add authentication service with JWT support, user and role management, and exception handling" />
+    <MESSAGE value="Add initial implementation of authentication service with JWT support" />
+    <MESSAGE value="Implement Redis caching for permission management and enhance authentication service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Redis caching for permission management and enhance authentication service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -513,6 +545,11 @@
           <url>file://$PROJECT_DIR$/services/payment-service/src/main/java/mk/paymentservice/services/impls/PaymentServiceImpl.java</url>
           <line>28</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/services/user-service/src/main/java/mk/user/service/service/impl/ExcelServiceImpl.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

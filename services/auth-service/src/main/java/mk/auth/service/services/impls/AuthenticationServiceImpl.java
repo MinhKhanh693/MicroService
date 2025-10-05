@@ -3,17 +3,17 @@ package mk.auth.service.services.impls;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mk.auth.service.dtos.TblPermissionEntityDTO;
 import mk.auth.service.dtos.requests.SigningRequestDto;
 import mk.auth.service.dtos.response.TblUserEntityResponseDto;
 import mk.auth.service.dtos.response.TokenResponseDto;
-import mk.auth.service.entities.TblPermissionEntity;
 import mk.auth.service.entities.TblUserEntity;
 import mk.auth.service.enums.TokenTypeEnum;
 import mk.auth.service.exceptions.InvalidDataException;
-import mk.auth.service.repositories.TblRoleEntityRepository;
 import mk.auth.service.repositories.TblUserEntityRepository;
 import mk.auth.service.services.IAuthenticationService;
 import mk.auth.service.services.IJwtService;
+import mk.auth.service.services.IPermissionService;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -31,19 +32,19 @@ import java.util.List;
 public class AuthenticationServiceImpl implements IAuthenticationService {
 
     private final TblUserEntityRepository userRepository;
-    private final TblRoleEntityRepository roleRepository;
     private final AuthenticationManager authenticationManager;
     private final IJwtService jwtService;
+    private final IPermissionService permissionService;
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     public TokenResponseDto getAccessToken(SigningRequestDto signingRequestDto) {
         log.info("Authenticating user: {}", signingRequestDto.username());
         authenticateUser(signingRequestDto.username(), signingRequestDto.password());
-
         TblUserEntity user = fetchUserByUsername(signingRequestDto.username());
         List<String> authorities = extractAuthorities(user);
-
-        return generateTokenResponse(user, authorities);
+        // Use the extracted method for token generation and response building
+        return generateAndBuildTokens(user, authorities);
     }
 
     @Override
@@ -51,24 +52,27 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         if (!StringUtils.hasLength(refreshToken)) {
             throw new InvalidDataException("Refresh token is empty");
         }
-
         Claims payload = jwtService.extractPayload(refreshToken, TokenTypeEnum.REFRESH_TOKEN);
         TblUserEntity user = fetchUserByUsername(payload.getSubject());
         List<String> authorities = extractAuthorities(user);
-
+        // Generate only a new access token
         String accessToken = jwtService.generateAccessToken(user.getId(), user.getUsername(), authorities);
-        return TokenResponseDto.builder().accessToken(accessToken).refreshToken(refreshToken).build();
+        Instant expirationDate = jwtService.getExpirationDateFromToken(accessToken);
+        // Return new access token with the original refresh token
+        return TokenResponseDto.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken) // Keep the original refresh token
+                .expiration(expirationDate)
+                .build();
     }
 
     @Override
     public TblUserEntityResponseDto validateToken(String token, String uri) {
         log.info("Validating token for URI: {}", uri);
         String trimmedUri = uri.substring(uri.indexOf("/api/"));
-
         Claims payload = jwtService.extractPayload(token, TokenTypeEnum.ACCESS_TOKEN);
         List<String> authorities = payload.get("authorities", List.class);
         validatePermissions(authorities, trimmedUri);
-
         TblUserEntity user = fetchUserByUsername(payload.getSubject());
         return buildUserResponse(user);
     }
@@ -79,12 +83,19 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
                     new UsernamePasswordAuthenticationToken(username, password));
             SecurityContextHolder.getContext().setAuthentication(authentication);
         } catch (BadCredentialsException | DisabledException e) {
-            throw new InternalAuthenticationServiceException("Authentication failed: " + e.getMessage());
+            // Log the error for debugging purposes
+            log.error("Authentication failed for user {}: {}", username, e.getMessage());
+            throw new InternalAuthenticationServiceException("Authentication failed: " + e.getMessage(), e);
         }
     }
 
     private TblUserEntity fetchUserByUsername(String username) {
-        return userRepository.findTblUserByUsername(username);
+        TblUserEntity user = userRepository.findTblUserByUsername(username);
+        if (user == null) {
+            // Throw a more specific exception if user not found
+            throw new InvalidDataException("User not found: " + username);
+        }
+        return user;
     }
 
     private List<String> extractAuthorities(TblUserEntity user) {
@@ -93,30 +104,52 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
                 .toList();
     }
 
-    private void validatePermissions(List<String> authorities, String uri) {
-
-        List<TblPermissionEntity> permissions = roleRepository.findPermissionsByListRoleName(authorities);
-        AntPathMatcher pathMatcher = new AntPathMatcher();
-
+    /**
+     * Validates if the user associated with the provided authorities has permission to access the given URI.
+     *
+     * @param authorities List of authority strings.
+     * @param uri         The URI to check permissions for.
+     * @throws AccessDeniedException if permission is denied.
+     */
+    public void validatePermissions(List<String> authorities, String uri) {
+        List<TblPermissionEntityDTO> permissions = this.permissionService.getPermissionsByRoleNames(authorities);
         boolean hasPermission = permissions.stream()
-                .anyMatch(permission -> pathMatcher.match(permission.getPath(), uri));
+                .anyMatch(permission -> permission != null && permission.getPath() != null &&
+                        pathMatcher.match(permission.getPath(), uri));
 
         if (!hasPermission) {
-            throw new AccessDeniedException("Access denied: insufficient permissions");
+            log.warn("ACCESS DENIED - URI: '{}', Authorities: {}. No matching permission found.", uri, authorities);
+            throw new AccessDeniedException("Access is denied: insufficient permissions for " + uri);
         }
+        log.debug("Permission granted for URI '{}' with authorities {}.", uri, authorities);
     }
 
-    private TokenResponseDto generateTokenResponse(TblUserEntity user, List<String> authorities) {
+    /**
+     * Generates access and refresh tokens for the given user and authorities,
+     * then builds the TokenResponseDto.
+     *
+     * @param user        The user entity.
+     * @param authorities The user's authorities.
+     * @return TokenResponseDto containing the generated tokens and expiration.
+     */
+    private TokenResponseDto generateAndBuildTokens(TblUserEntity user, List<String> authorities) {
         String accessToken = jwtService.generateAccessToken(user.getId(), user.getUsername(), authorities);
         String refreshToken = jwtService.generateRefreshToken(user.getId(), user.getUsername(), authorities);
-        return TokenResponseDto.builder().accessToken(accessToken).refreshToken(refreshToken).build();
+        Instant expirationDate = jwtService.getExpirationDateFromToken(accessToken);
+        return TokenResponseDto.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .expiration(expirationDate)
+                .build();
     }
 
     private TblUserEntityResponseDto buildUserResponse(TblUserEntity user) {
+        // Ensure authorities are loaded/extracted if needed, handled by extractAuthorities
         return TblUserEntityResponseDto.builder()
                 .id(user.getId())
+                // Add other relevant fields from TblUserEntity to the response DTO as needed
                 .username(user.getUsername())
-                .email(user.getEmail())
+                .email(user.getEmail()) // Assuming email exists on TblUserEntity
                 .authorities(extractAuthorities(user))
                 .build();
     }

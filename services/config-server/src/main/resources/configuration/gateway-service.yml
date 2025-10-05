@@ -41,6 +41,8 @@ spring:
           uri: lb:http://AUTH-SERVICE
           predicates:
             - Path=/api/v1/auths/**
+          filters:
+            - JwtValidation
 application:
   config:
     auth-service-url: http://localhost:8222/api/v1/auths

@@ -1,8 +1,7 @@
 package mk.auth.service.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -10,6 +9,9 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tbl_permission")
 public class TblPermissionEntity {
     @Id
@@ -34,7 +36,17 @@ public class TblPermissionEntity {
     @Column(name = "path")
     private String path;
 
-    @OneToMany(mappedBy = "permission")
-    private Set<mk.auth.service.entities.TblRoleHasPermissionEntity> tblRoleHasPermissions = new LinkedHashSet<>();
+    @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Set<TblRoleEntity> roles = new LinkedHashSet<>();
 
+    public void addRole(TblRoleEntity role) {
+        if (roles == null) {
+            roles = new LinkedHashSet<>();
+        }
+        roles.add(role);
+        if (role.getPermissions() == null) {
+            role.setPermissions(new LinkedHashSet<>());
+        }
+        role.getPermissions().add(this);
+    }
 }

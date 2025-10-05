@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="0@redis-10635.c325.us-east-1-4.ec2.redns.redis-cloud.com">
+  <database-model serializer="dbm" dbms="REDIS" family-id="REDIS" format-version="4.53">
+    <root id="1">
+      <ServerVersion>7.4.2</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="0">
+      <Current>1</Current>
+    </schema>
+    <string id="3" parent="2" name="rolePermissions::ADMIN"/>
+    <string id="4" parent="2" name="rolePermissions::MANAGER"/>
+    <string id="5" parent="2" name="rolePermissions::SYSTEM_ADMIN"/>
+    <string id="6" parent="2" name="rolePermissions::USER"/>
+  </database-model>
+</dataSource>
