@@ -24,5 +24,19 @@ jwt:
   expiration: 3600
   secretRefreshToken: 807ea68a7a5e3f059b99a6659af6a2f3f0c617bae5cb824020d6210653f61045
   expirationRefreshToken: 604800
+
 server:
   port: 8000
+springdoc:
+  api-docs:
+    path: /swagger-ui.html
+    enabled: true
+  swagger-ui:
+    path: /api-docs
+    enabled: true
+openapi:
+  service:
+    title: Backend Service Development Environment
+    version: 1.0.0
+    api-docs: Backend-Service
+    server: http://localhost:${server.port}

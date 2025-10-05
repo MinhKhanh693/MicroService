@@ -5,16 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TblPermissionEntityDTO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class TblPermissionEntityDTO {
     private int id;
     private String description;
     private String group;

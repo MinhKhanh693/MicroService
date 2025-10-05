@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import mk.auth.service.entities.TblRoleEntity;
 import mk.auth.service.repositories.TblRoleEntityRepository;
 import mk.auth.service.services.IPermissionService;
-import mk.auth.service.services.impls.AuthenticationServiceImpl;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -19,42 +18,46 @@ public class CacheWarmer implements ApplicationRunner {
 
     private final TblRoleEntityRepository roleRepository;
     private final IPermissionService permissionService;
-    private final AuthenticationServiceImpl authorizationService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("Starting cache warming process for 'rolePermissions'...");
         try {
-            // 1. Lấy danh sách tất cả các tên Role từ DB
-            // (Cách lấy tùy thuộc vào cấu trúc Role của bạn)
-            List<TblRoleEntity> allRoleNames = this.roleRepository.findAll(); // Giả sử có phương thức này
+            List<TblRoleEntity> allRoles = this.roleRepository.findAll(); // Renamed variable
 
-            if (allRoleNames.isEmpty()) {
-                log.warn("No role names found to warm up the cache.");
+            if (allRoles.isEmpty()) {
+                log.warn("No roles found to warm up the cache.");
                 return;
             }
 
-            // 2. Gọi phương thức @Cacheable cho từng role (hoặc các bộ role phổ biến)
-            //    để đưa dữ liệu vào cache.
-            //    Ví dụ: Cache cho từng role riêng lẻ
-            log.info("Warming cache for individual roles...");
-
-            for (TblRoleEntity roleName : allRoleNames) {
-                log.debug("Warming cache for role: {}", roleName);
-                // Gọi phương thức cacheable với list chỉ chứa 1 role
-                this.permissionService.getPermissionsByRoleNames(List.of(roleName.getName().name()));
-            }
-
-            // Bạn cũng có thể làm nóng cache cho các tổ hợp role phổ biến nếu biết trước
-            // Ví dụ: authorizationService.getPermissionsByRoleNames(List.of("USER", "EDITOR"));
+            warmCacheForRoles(allRoles); // Extracted method call
 
             log.info("Cache warming process for 'rolePermissions' completed.");
-
         } catch (Exception e) {
             log.error("Error during cache warming process for 'rolePermissions'", e);
+            // Consider if rethrowing is necessary depending on application requirements
         }
     }
 
-    // Giả sử RoleRepository có phương thức này
-    // public List<String> findAllRoleNames() { ... }
+    /**
+     * Warms the permission cache for the given list of roles.
+     *
+     * @param roles The list of TblRoleEntity objects.
+     */
+    private void warmCacheForRoles(List<TblRoleEntity> roles) {
+        log.info("Warming cache for individual roles...");
+        for (TblRoleEntity role : roles) {
+            if (role.getName() != null) {
+                log.debug("Warming cache for role: {}", role.getName());
+                // Call the cacheable method with a list containing a single role name
+                this.permissionService.getPermissionsByRoleNames(List.of(role.getName().name()));
+            } else {
+                log.warn("Skipping cache warming for role with ID {} because its name is null.", role.getId());
+            }
+        }
+        // Consider warming cache for common role combinations if needed
+        // Example: this.permissionService.getPermissionsByRoleNames(List.of("USER", "EDITOR"));
+    }
+
+    // Unused commented-out method removed
 }

@@ -20,6 +20,9 @@ public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFact
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER_PREFIX = "Bearer ";
+    private static final String USER_ID_HEADER = "X-User-Id";
+    private static final String USER_NAME_HEADER = "X-User-Name";
+    private static final String[] WHITELIST = {"/api/v1/auths/access-token", "/api/v1/auths/refresh-token"};
 
     private final WebClient webClient;
 
@@ -30,10 +33,18 @@ public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFact
     @Override
     public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
+            for (String path : WHITELIST) {
+                if (exchange.getRequest().getURI().getPath().equals(path)) {
+                    log.info("Request is whitelisted, skipping token validation");
+                    return chain.filter(exchange);
+                }
+            }
+
             String token = this.extractToken(exchange);
             if (token == null) {
                 return this.unauthorizedResponse(exchange);
             }
+            log.info("Token: {}", token);
 
             return webClient.get()
                     .uri(uriBuilder -> uriBuilder
@@ -63,8 +74,8 @@ public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFact
     private void addUserHeaders(ServerWebExchange exchange, TblUserEntityResponseDto userResponseDto) {
         log.info("Adding X-User-Id header: {}", userResponseDto.id());
         ServerHttpRequest mutatedRequest = exchange.getRequest().mutate()
-                .header("X-User-Id", String.valueOf(userResponseDto.id()))
-                .header("X-User-Name", userResponseDto.username())
+                .header(USER_ID_HEADER, String.valueOf(userResponseDto.id()))
+                .header(USER_NAME_HEADER, userResponseDto.username())
                 .build();
         exchange.mutate().request(mutatedRequest).build();
     }
