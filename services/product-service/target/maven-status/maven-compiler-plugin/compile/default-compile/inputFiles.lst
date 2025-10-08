@@ -1,0 +1,14 @@
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\controllers\requests\UpdateProductRequestDto.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\mappers\ProductMapper.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\controllers\requests\CreateCategoryRequestDto.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\entities\ProductEntity.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\services\impls\ProductServiceImpl.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\controllers\ProductController.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\services\IProductService.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\repositories\ProductRepository.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\repositories\CategoryRepository.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\controllers\requests\CreateProductRequestDto.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\dtos\CategoryDto.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\entities\CategoryEntity.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\ProductServiceApplication.java
+D:\allProject\Java-Tutorial\Microservices\services\product-service\src\main\java\mk\productservice\dtos\ProductDto.java

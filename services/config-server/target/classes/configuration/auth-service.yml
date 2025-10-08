@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_database
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      port: 10635
+      host: redis-10635.c325.us-east-1-4.ec2.redns.redis-cloud.com
+      username: default
+      password: XBrv15tfNjgaSZ7Efz5Sv3nKw2FFhBvc
+      database: 0
+    cache:
+      type: redis
+jwt:
+  secretToken: bfa63028d03263226c8e955e27bf04ea9bbc1a6534b4bc1eaa6410dbf935dd6b
+  expiration: 3600
+  secretRefreshToken: 807ea68a7a5e3f059b99a6659af6a2f3f0c617bae5cb824020d6210653f61045
+  expirationRefreshToken: 604800
+
+server:
+  port: 8000
+springdoc:
+  api-docs:
+    path: /swagger-ui.html
+    enabled: true
+  swagger-ui:
+    path: /api-docs
+    enabled: true
+openapi:
+  service:
+    title: Backend Service Development Environment
+    version: 1.0.0
+    api-docs: Backend-Service
+    server: http://localhost:${server.port}

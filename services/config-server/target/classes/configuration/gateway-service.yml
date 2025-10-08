@@ -1,0 +1,48 @@
+server:
+  port: 8222
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: customer-service
+          uri: lb:http://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customers/**
+          filters:
+            - JwtValidation
+        - id: order-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/orders/**
+          filters:
+            - JwtValidation
+        - id: order-lines-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order-lines/**
+          filters:
+            - JwtValidation
+        - id: product-service
+          uri: lb:http://PRODUCT-SERVICE
+          predicates:
+            - Path=/api/v1/products/**
+          filters:
+            - JwtValidation
+        - id: payment-service
+          uri: lb:http://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payments/**
+          filters:
+            - JwtValidation
+        - id: auth-service
+          uri: lb:http://AUTH-SERVICE
+          predicates:
+            - Path=/api/v1/auths/**
+          filters:
+            - JwtValidation
+application:
+  config:
+    auth-service-url: http://localhost:8222/api/v1/auths

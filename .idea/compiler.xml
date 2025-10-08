@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-service" target="17" />
+      <module name="config-server" target="17" />
+      <module name="customer-service" target="17" />
+      <module name="discovery-service" target="17" />
+      <module name="gateway-service" target="17" />
+      <module name="notification-service" target="17" />
+      <module name="order-service" target="17" />
+      <module name="payment-service" target="17" />
+      <module name="product-service" target="17" />
+      <module name="user-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
