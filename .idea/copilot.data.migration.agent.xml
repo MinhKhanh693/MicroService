@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AgentMigrationStateService">
+    <option name="migrationStatus" value="IN_PROGRESS" />
+    <option name="pendingSessionIds">
+      <option value="11b785e2-d7b1-4553-9697-b84f6b475bb3" />
+      <option value="3c69179a-e268-4779-8724-c77eba53e7cd" />
+      <option value="52a0c3c6-9620-4bb6-b31d-88579384b5c2" />
+    </option>
+    <option name="pendingTurns">
+      <map>
+        <entry key="11b785e2-d7b1-4553-9697-b84f6b475bb3">
+          <value>
+            <set>
+              <option value="7987bb39-20cc-41ea-b94a-c8116b5ebf1f" />
+            </set>
+          </value>
+        </entry>
+        <entry key="52a0c3c6-9620-4bb6-b31d-88579384b5c2">
+          <value>
+            <set>
+              <option value="65b97a13-6ddd-4c8d-a8c7-0d0eabaaa2ff" />
+              <option value="3b055fa9-e352-4614-88a7-5e0115853df3" />
+              <option value="6dcc6a35-f425-47a2-a1bb-495a3aa87000" />
+              <option value="5859063f-edcc-455d-9aa4-f0e485c2c885" />
+              <option value="ee038512-2f19-479e-9364-a617070e3756" />
+              <option value="2307bce8-2353-4dac-8ea0-2071041fcacc" />
+              <option value="d7378093-4bb6-480f-be8c-588757c54a2c" />
+              <option value="c1359ea7-ef0c-4628-ac61-87ecdc6baf4c" />
+              <option value="338411f6-fb0c-4ba5-990d-a52fc385d817" />
+              <option value="13ae5b59-01a0-484e-9d08-c43a12ab9ee5" />
+              <option value="78041092-21aa-4525-9e04-c08c3330230d" />
+              <option value="c633fd17-5430-42d6-8c40-2827f13a9b35" />
+              <option value="4223b9e3-1428-4099-b8fa-05863aff86ef" />
+              <option value="9e5c86db-ae31-4997-a64b-cfa5f11eaeab" />
+              <option value="ba4d84cf-bd49-4469-b2c8-8e58af9566be" />
+              <option value="fc60f21f-0b0b-4dc2-98bc-f7c6ca7d8cf1" />
+              <option value="12116f37-20f0-4fc7-9950-ac7df667fd30" />
+              <option value="b37a032f-b211-46bc-b9cd-4696a9cee09a" />
+              <option value="a002f169-523c-4e57-aa9c-eb6fed982ab2" />
+              <option value="8e73f46e-7e7b-4c2f-81d8-c5a0336846d0" />
+              <option value="263db9e8-f777-48ae-98b7-4e7be6a77ee4" />
+              <option value="691cb5aa-47e7-4374-af02-21df19ab33f7" />
+              <option value="c57bd0f9-49d1-4cc4-a93e-a751d8ca1b95" />
+              <option value="04f0ff81-b8c4-4bec-a16f-8f1cabb4345d" />
+              <option value="34883ca5-146f-4673-8dee-f621f7bb04ec" />
+              <option value="20f0027e-9350-4815-88f3-056c7fae7592" />
+              <option value="c8d4782e-676b-4313-b779-ed2d4c971717" />
+              <option value="e6d65a81-22a4-407b-8c15-0f06cdcd0b4a" />
+              <option value="b281290e-f1c7-41ea-b96e-6a4522660758" />
+              <option value="a7ccc26c-eb1f-46f8-97eb-11246b868ab5" />
+              <option value="27643e04-e2a6-403f-8c71-543df8bd1b2f" />
+              <option value="52362860-d2eb-4283-909c-dad3b9f8ed03" />
+              <option value="538b10f3-47d8-469f-b10c-c63a80bf47a9" />
+              <option value="ab406f13-3aeb-4a90-a5f4-3e5570e6ea3d" />
+              <option value="6ad0242b-2496-4c01-bd92-d0739a5ff37a" />
+              <option value="347fc0eb-2bbd-4b78-bba8-f28ec9bacd33" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <pendingWorkingSetItems>
+      <entry key="11b785e2-d7b1-4553-9697-b84f6b475bb3" />
+    </pendingWorkingSetItems>
+  </component>
+</project>
