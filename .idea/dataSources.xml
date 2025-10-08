@@ -23,5 +23,13 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/user_database</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="0@redis-10635.c325.us-east-1-4.ec2.redns.redis-cloud.com" uuid="e9618606-1bd1-4ef3-8663-a3af48171c9a">
+      <driver-ref>redis</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <jdbc-driver>jdbc.RedisDriver</jdbc-driver>
+      <jdbc-url>jdbc:redis://redis-10635.c325.us-east-1-4.ec2.redns.redis-cloud.com:10635/0</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
